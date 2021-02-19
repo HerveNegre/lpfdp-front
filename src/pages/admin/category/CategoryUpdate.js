@@ -34,12 +34,10 @@ const CategoryUpdate = ({ history, match }) => {
             toast.success(`Modification(s) de "${res.data.name}" effectuée(s) avec success !`);
             history.push('/admin/category');
         })
-        .catch((error, res) => {
+        .catch((error) => {
             console.log(error);
             setLoad(false);
-            if (error.response.status === 400) {
-                toast.error(`ERREUR : La catégorie "${res.data.name}" existe déja !`);
-            }
+            if (error.response.status === 400) toast.error(err.response.data);
         });
     };
 

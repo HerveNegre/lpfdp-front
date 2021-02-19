@@ -103,24 +103,6 @@ const ProductUpdateForm = ({
         </select>
       </div>
 
-      <div>
-        <label>Sous Catégories</label>
-        <Select
-          mode="multiple"
-          style={{ width: "100%" }}
-          placeholder="Please select"
-          value={arrayOfSubs}
-          onChange={(value) => setArrayOfSubs(value)}
-        >
-          {subOptions.length &&
-            subOptions.map((s) => (
-              <Option key={s._id} value={s._id}>
-                {s.name}
-              </Option>
-            ))}
-        </Select>
-      </div>
-
       <br />
       <button className="btn btn-outline-info">Modifier</button>
     </form>

@@ -50,9 +50,9 @@ const CategoryCreate = () => {
     };
 
     //popup confirmer supression categorie
-    const handleRemove = async (slug, res) => {
+    const handleRemove = async (slug) => {
         // console.log(answer, slug);
-        if (window.confirm(`VOTRE ATTENTION SVP ! Voulez vous vraiment supprimer la categorie "${res.data.name}" ?`)) {
+        if (window.confirm(`VOTRE ATTENTION SVP ! Voulez vous vraiment supprimer la categorie ?`)) {
             setLoad(true);
             removeCategory(slug, user.token)
                 .then((res) => {
@@ -60,10 +60,10 @@ const CategoryCreate = () => {
                     toast.success(`La catégorie ${res.data.name} a été supprimé avec success`);
                     loadCategories();
                 })
-                .catch((error, res) => {
+                .catch((error) => {
                     if (error.response.status === 400) {
                         setLoad(false);
-                        toast.error(`ERREUR : La catégorie "${res.data.name}" n'a pas pus être supprimé !`);
+                        toast.error(err.response.data);
                     }
                 });
         }
